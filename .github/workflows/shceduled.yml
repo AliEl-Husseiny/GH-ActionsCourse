@@ -1,7 +1,7 @@
 name: scheduled Workflow
 on:
   schedule:
-    - cron: "17 13 * * *" # Runs every day at midnight UTC
+    - cron: "23 12 * * *" # Runs every day at midnight UTC
 jobs:
   ScheduledTest:
     runs-on: ubuntu-latest

@@ -1,0 +1,10 @@
+name: Manual External API Workflow
+on:
+  repository_dispatch:
+    types: [incident_report]
+jobs:
+  hanlde_incident_report:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print incident report
+        run: echo "Incident report received and handled"

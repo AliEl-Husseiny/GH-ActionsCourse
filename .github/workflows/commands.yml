@@ -5,15 +5,23 @@ jobs:
   commands_job:
     runs-on: ubuntu-latest
     steps:
-      - name: Test command
-        run: |
-          deprecated=true
-          if [[ deprecated ]]; then
-              echo "::warning::Deprecated function found"
-          fi
+      #- name: Test command
+        #run: |
+          #deprecated=true
+          #if [[ deprecated ]]; then
+              #echo "::warning::Deprecated function found"
+          #fi
 
       - name: Set API Key
         run: echo "API_KEY=12345" >> $GITHUB_ENV
 
       - name: Use API Key
         run: echo "Using API Key $API_KEY"
+
+      - name: Check if a file exist
+        run: | 
+          if [ -f "config.yaml" ]; then
+            echo "::debug::config.yaml exists"
+          else
+            echo "::error::config.yaml is missing"
+            fi

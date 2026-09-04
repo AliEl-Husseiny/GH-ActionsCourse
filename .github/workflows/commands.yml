@@ -16,10 +16,9 @@ jobs:
         run: echo "API_KEY=12345" >> $GITHUB_ENV
 
       - name: Use API Key
-        #run: echo "Using API Key $API_KEY"
         run: |
-           ehco "::add-mask::$API_KEY"
-           echo "Using API Key $API_KEY"
+          echo "::add-mask::$API_KEY"
+          echo "Using API Key $API_KEY"
 
       - name: Check if a file exist
         run: | 
@@ -27,4 +26,4 @@ jobs:
             echo "::debug::config.yaml exists"
           else
             echo "::error::config.yaml is missing"
-            fi
+          fi

@@ -1,0 +1,15 @@
+name: more on actions
+on:
+  workflow_dispatch:
+jobs:
+  actions-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v7.0.1
+      - name: Say Hello
+        uses: .github/actions/Greeting@v1
+        with:
+          name: "Ali"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

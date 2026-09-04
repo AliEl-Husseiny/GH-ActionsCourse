@@ -1,0 +1,15 @@
+name: expressions in workflows
+on:
+    workflow_dispatch:
+jobs:
+    expressions:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Run a deployment script
+              run: ./deploy.sh
+            - name: Cleanup on failure
+              run: echo "Deployment Succeded"
+              if: success()
+              # always() -> always runs regardless of the previous step result
+              # canelled() -> if the previous step was canceled 
+                
